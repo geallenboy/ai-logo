@@ -14,7 +14,7 @@ export const navList = {
       icon: Settings2,
     },
   ],
-  cn: [
+  zh: [
     {
       title: "仪表盘",
       url: "/dashboard",

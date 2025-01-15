@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/sidebar";
 import { createClient } from "@/lib/supabase/server";
 import Title from "./title";
+import Link from "next/link";
 
 export const AppSidebar = async ({
   ...props
@@ -23,15 +24,17 @@ export const AppSidebar = async ({
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <SidebarMenuButton
-          size="lg"
-          className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
-        >
-          <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-            <Sparkles className="size-4" />
-          </div>
-          <Title />
-        </SidebarMenuButton>
+        <Link href={"/dashboard"}>
+          <SidebarMenuButton
+            size="lg"
+            className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+          >
+            <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+              <Sparkles className="size-4" />
+            </div>
+            <Title />
+          </SidebarMenuButton>
+        </Link>
       </SidebarHeader>
       <SidebarContent>
         <NavMain />

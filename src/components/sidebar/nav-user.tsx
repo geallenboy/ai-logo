@@ -87,12 +87,6 @@ export const NavUser = ({
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <Sparkles />
-                {sidebarT("upgrade")}
-              </DropdownMenuItem>
-            </DropdownMenuGroup>
 
             <DropdownMenuGroup>
               <Link

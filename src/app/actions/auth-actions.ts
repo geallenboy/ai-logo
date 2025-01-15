@@ -37,9 +37,9 @@ export const loginAction = async (formData: FormData): Promise<AuthResponse> => 
         email: formData.get("email") as string,
         password: formData.get("password") as string,
     }
-
+    console.log("data:", data)
     const { data: signinData, error } = await supbase.auth.signInWithPassword(data)
-
+    console.log("data:", signinData)
     return {
         error: error?.message || "There was an error login in!",
         success: !error,
@@ -85,11 +85,9 @@ export const resetPasswordAction = async ({ email }: { email: string }): Promise
 
 export const changePasswordAction = async (newPassword: string): Promise<AuthResponse> => {
     const supbase = await createClient();
-
     const { data, error } = await supbase.auth.updateUser({
         password: newPassword
     })
-
     return {
         error: error?.message || "There was an error changing the password!",
         success: !error,

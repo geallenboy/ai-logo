@@ -28,15 +28,11 @@ export const ResetPassword = () => {
     email: z.string().email({
       message: resetPasswordT("emailMessage"),
     }),
-    password: z.string().min(8, {
-      message: resetPasswordT("passwordMessage"),
-    }),
   });
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       email: "",
-      password: "",
     },
   });
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
@@ -81,19 +77,7 @@ export const ResetPassword = () => {
                 </FormItem>
               )}
             />
-            <FormField
-              control={form.control}
-              name="password"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>{resetPasswordT("password")}</FormLabel>
-                  <FormControl>
-                    <Input type={"password"} {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+
             <Button type="submit" className="w-full">
               {resetPasswordT("btn1")}
             </Button>
