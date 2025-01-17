@@ -4,6 +4,12 @@
     "en": "英文",
     "label": "语言"
   },
+  "themeConfig": {
+    "light": "浅色",
+    "dark": "深色",
+    "system": "系统"
+  },
+
   "app": {
     "name": "AI SaaS",
     "textPro": "专业版"

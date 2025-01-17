@@ -1,8 +1,8 @@
 "use client";
-import { startTransition } from "react";
+import { startTransition, useState } from "react";
 
 import { useLocale, useTranslations } from "next-intl";
-import { Globe } from "lucide-react";
+import { ChevronDown, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -16,6 +16,8 @@ import { setUserLocale } from "@/lib/locale";
 export const LanguageSwitcher = () => {
   const t = useTranslations("LocaleSwitcher");
   const locale = useLocale();
+  const [isOpen, setIsOpen] = useState(false);
+
   const items = [
     {
       value: "en",
@@ -36,14 +38,23 @@ export const LanguageSwitcher = () => {
   };
 
   return (
-    <DropdownMenu>
+    <DropdownMenu onOpenChange={(open) => setIsOpen(open)}>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm" className="flex items-center gap-2">
+        <Button
+          variant="outline"
+          size="icon"
+          className="flex items-center gap-1 w-[90px]"
+        >
           <Globe className="h-4 w-4" />
           <span>{locale === "en" ? "English" : "中文"}</span>
+          <ChevronDown
+            className={`h-4 w-4 transition-transform duration-200 ${
+              isOpen ? "rotate-180" : ""
+            }`}
+          />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="center">
+      <DropdownMenuContent align="end">
         {items.map((item: any) => {
           return (
             <DropdownMenuItem

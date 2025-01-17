@@ -4,9 +4,6 @@ import LoginImage from "@/components/login/login-image";
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { getUser } from "@/lib/supabase/queries";
-interface SearchParamsProps {
-  state?: string;
-}
 
 const LoginPage = async () => {
   const supabase = await createClient();
@@ -16,10 +13,10 @@ const LoginPage = async () => {
     return redirect("/dashboard");
   }
   return (
-    <main className="h-screen grid grid-cols-2 relative">
+    <main className="h-screen grid grid-cols-1 md:grid-cols-2 relative">
       <LoginImage />
       <div className="relative flex flex-col items-center justify-center p-8 h-full w-full">
-        <div className=" w-[400px] mx-auto">
+        <div className=" w-full md:w-[400px] mx-auto">
           <LoginForm />
         </div>
       </div>

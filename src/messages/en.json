@@ -4,6 +4,11 @@
     "en": "English",
     "label": "Language"
   },
+  "themeConfig": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
   "app": {
     "name": "AI SaaS",
     "textPro": "Pro"
