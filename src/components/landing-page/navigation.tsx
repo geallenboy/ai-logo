@@ -1,7 +1,6 @@
+"use client";
 import React from "react";
 import Logo from "@/components/logo";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
@@ -9,60 +8,10 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
-import { useTranslations } from "next-intl";
-import { createClient } from "@/lib/supabase/server";
-import { getUser } from "@/lib/supabase/queries";
-import { LanguageSwitcher } from "./language-switcher";
-import { ModeToggle } from "./mode-toggle";
+import NavItemsLeft from "./nav-items-left";
+import NavItemsRight from "./nav-items.right";
 
-const NavItemsRight = ({ user }: { user: any }) => {
-  const homeT = useTranslations("home.navigtion");
-  return (
-    <>
-      <LanguageSwitcher />
-      <ModeToggle />
-      {user ? (
-        <Link
-          href={"/dashboard"}
-          className="text-sm font-medium hover:underline underline-offset-4"
-        >
-          <Button variant={"outline"}> {homeT("name")}</Button>
-        </Link>
-      ) : (
-        <Link
-          href={"/login?state=signup"}
-          className="text-sm font-medium hover:underline underline-offset-4"
-        >
-          <Button variant={"outline"}> {homeT("signup")}</Button>
-        </Link>
-      )}
-    </>
-  );
-};
-const NavItemsLeft = () => {
-  const homeT = useTranslations("home.navigtion");
-  return (
-    <>
-      <Link
-        href={"#features"}
-        className="text-sm font-medium hover:underline underline-offset-4"
-      >
-        {homeT("features")}
-      </Link>
-      <Link
-        href={"#faqs"}
-        className="text-sm font-medium hover:underline underline-offset-4"
-      >
-        {homeT("faqs")}
-      </Link>
-    </>
-  );
-};
-
-const Navigtion = async () => {
-  const supabase = await createClient();
-  const user = await getUser(supabase);
-
+const Navigtion = ({ user }: { user: any }) => {
   return (
     <div className="w-full bg-background/60 backdrop-blur-md fixed top-0 px-8 py-4 z-50 shadow-xl overflow-hidden">
       <header className="contariner mx-auto flex items-center ">

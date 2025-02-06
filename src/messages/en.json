@@ -10,7 +10,7 @@
     "system": "System"
   },
   "app": {
-    "name": "AI SaaS",
+    "name": "AI Logo",
     "textPro": "Pro"
   },
   "login": {
@@ -80,7 +80,7 @@
       "features": "Features",
       "pricing": "Pricing",
       "faqs": "FAQs",
-      "signup": "Sign up"
+      "login": "login"
     },
     "faqs": {
       "name": "FAQs",
@@ -113,24 +113,27 @@
       "title1": "Image AI Inc. All rights reserved.",
       "title2": "Tems of Service",
       "title3": "Privacy Policy"
-    },
-    "review": {
-      "title1": "Testimonials",
-      "title2": "What Our Users Say",
-      "title3": " Discover why thousands are choosing AI for effortless,high-quality photo generation, from LinkedIn headshots to vibrant social media content."
-    },
-    "ready": {
-      "title1": "Ready to Transform Your Photos?",
-      "title2": "Join thousands of users who are already creating amazing AI-generated images.",
-      "title3": "  Create Your First AI Model"
     }
   },
   "dashboard": {
-    "title": "Welcome back"
-  },
-  "modelTraining": {
-    "title": "Train Model",
-    "desc": "Train anew model with yout own image"
+    "HeroHeading": "AI Logo Maker",
+    "HeroSubheading": "Perfect Logos for Apps, Businesses, and Websites",
+    "HeroDesc": "Craft unique and professional logos effortlessly with our AI-powered tool. Perfect for apps, businesses, websites, and more!",
+    "InputTitlePlaceholder": "Enter your Logo Name",
+    "LogoTitle": "Logo Title",
+    "LogoTitleDesc": "Add Your Business, App, or Website Name for a Custom Logo",
+    "LogoDescTitle": "Describe Your Logo Vision",
+    "LogoDescDesc": "Share your ideas, themes, or inspirations to create a logo that perfectly represents your brand or project.",
+    "LogoIdeaTitle": "Select Your Design Idea",
+    "LogoIdeaDesc": "Choose a design style that aligns with your vision, or skip to receive a random suggestion.",
+    "LogoDesignTitle": "Choose Your Logo Style",
+    "LogoDesignDesc": "Select the type of logo design that best represents your brand's unique identity.",
+    "LogoColorPaletteTitle": "Choose Your Color Palette",
+    "LogoColorPaletteDesc": "Pick the colors that reflect your brand's personality and create a lasting impression.",
+    "LogoPricingModelTitle": "Select your AI Model Plan",
+    "LogoPricingModelDesc": "Generate Unlimited Fast Logos with your favorite model",
+    "LoadingWaitDesc": "✨ Please wait a moment while we work our magic to bring your logo to life.",
+    "LoadingWaitTitle": "Your logo is being created"
   },
   "account": {
     "title": "Account settings",
@@ -207,13 +210,5 @@
       "selected": "Selected",
       "mostPopular": "Most Popular"
     }
-  },
-  "gallery": {
-    "title": "My Images",
-    "desc": "Here you can see all the images you have generated .Click on an image to view details"
-  },
-  "model": {
-    "title": "My Modles",
-    "desc": "View and manage your trained models"
   }
 }

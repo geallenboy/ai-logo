@@ -12,6 +12,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.21.0",
     "@hookform/resolvers": "^3.9.1",
     "@radix-ui/react-accordion": "^1.2.2",
     "@radix-ui/react-alert-dialog": "^1.1.4",
@@ -31,10 +32,13 @@
     "@radix-ui/react-separator": "^1.1.1",
     "@radix-ui/react-slider": "^1.2.2",
     "@radix-ui/react-slot": "^1.1.1",
+    "@radix-ui/react-tooltip": "^1.1.6",
     "@supabase/ssr": "^0.5.2",
     "@supabase/supabase-js": "^2.47.10",
+    "axios": "^1.7.9",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "https-proxy-agent": "^7.0.6",
     "lucide-react": "^0.469.0",
     "next": "^15.0.3",
     "next-intl": "^3.26.3",

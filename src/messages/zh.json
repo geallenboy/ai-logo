@@ -11,7 +11,7 @@
   },
 
   "app": {
-    "name": "AI SaaS",
+    "name": "AI Logo",
     "textPro": "专业版"
   },
   "login": {
@@ -24,7 +24,7 @@
       "btn": "提交",
       "btn1": "需要账户？注册",
       "btn2": "忘记密码？",
-      "info1": "正在注册...",
+      "info1": "正在登录...",
       "info2": "登录成功！",
       "emailMessage": "请输入有效的邮箱地址！",
       "passwordMessage": "密码长度必须至少为 8 个字符。"
@@ -81,24 +81,19 @@
       "features": "功能",
       "pricing": "定价",
       "faqs": "常见问题",
-      "signup": "注册"
-    },
-    "faqs": {
-      "name": "常见问题",
-      "title": "常见问题解答",
-      "text": "以下是一些关于我们产品的最常见问题。"
+      "login": "登录"
     },
     "features": {
       "name": "功能",
-      "title": "用  AI 解锁无限可能",
+      "title": "用 AI 解锁无限可能",
       "text": "我们的平台提供了多种功能，旨在提升您的图像创作体验。从易于使用的编辑工具到强大的 AI 驱动的图像生成，我们拥有将您的想法变为现实所需的一切。"
     },
     "hero": {
-      "title1": "尝试新的 Flux 模型",
-      "title2": "利用 AI 的力量改造您的照片",
-      "title3": "从头像到网红照片， AI 的尖端技术确保您始终展现最佳状态。轻松创建、编辑和生成图像。",
+      "title1": "尝试AI模型生成Logo",
+      "title2": "利用 AI 的创作能力",
+      "title3": "",
       "title4": "深受 1000+ 客户喜爱",
-      "title5": "创建您的第一个 AI 模型"
+      "title5": "创建您的第一个 AI Logo"
     },
     "price": {
       "name": "价格",
@@ -111,27 +106,30 @@
       "title7": "包含内容"
     },
     "footer": {
-      "title1": "Image AI 公司。保留所有权利。",
+      "title1": "GeGarron 公司。保留所有权利。",
       "title2": "服务条款",
       "title3": "隐私政策"
-    },
-    "review": {
-      "title1": "用户评价",
-      "title2": "我们的用户怎么说",
-      "title3": "了解为什么成千上万的人选择 AI，轻松生成高质量的照片，从头像到充满活力的社交媒体内容。"
-    },
-    "ready": {
-      "title1": "准备好改造您的照片了吗？",
-      "title2": "加入成千上万已经在创建令人惊叹的 AI 生成图像的用户。",
-      "title3": "创建您的第一个 AI 模型"
     }
   },
   "dashboard": {
-    "title": "欢迎回来"
-  },
-  "modelTraining": {
-    "title": "训练模型",
-    "desc": "使用您自己的图像训练一个新模型"
+    "HeroHeading": "AI 标志生成器",
+    "HeroSubheading": "为应用、企业和网站打造完美标志",
+    "HeroDesc": "使用我们的 AI 驱动工具，轻松打造独特且专业的标志。适用于应用、企业、网站等！",
+    "InputTitlePlaceholder": "输入您的标志名称",
+    "LogoTitle": "标志标题",
+    "LogoTitleDesc": "添加您的企业、应用或网站名称，以创建专属标志",
+    "LogoDescTitle": "描述您的标志愿景",
+    "LogoDescDesc": "分享您的想法、主题或灵感，打造完美展现品牌或项目的标志。",
+    "LogoIdeaTitle": "选择您的设计理念",
+    "LogoIdeaDesc": "选择符合您愿景的设计风格，或跳过此步骤以获取随机建议。",
+    "LogoDesignTitle": "选择您的标志风格",
+    "LogoDesignDesc": "选择最能代表您品牌独特身份的标志设计类型。",
+    "LogoColorPaletteTitle": "选择您的配色方案",
+    "LogoColorPaletteDesc": "挑选能体现您品牌个性并留下深刻印象的颜色。",
+    "LogoPricingModelTitle": "选择您的 AI 模型计划",
+    "LogoPricingModelDesc": "使用您喜欢的模型，快速生成无限数量的标志",
+    "LoadingWaitDesc": "✨ 请稍等片刻，我们正在施展魔法，为您打造标志。",
+    "LoadingWaitTitle": "您的标志正在创建中"
   },
   "account": {
     "title": "账户设置",
@@ -208,13 +206,5 @@
       "selected": "已选择",
       "mostPopular": "最受欢迎"
     }
-  },
-  "gallery": {
-    "title": "我的图像",
-    "desc": "在这里，您可以查看所有生成的图像。点击图像以查看详细信息。"
-  },
-  "model": {
-    "title": "我的模型",
-    "desc": "查看和管理您训练好的模型"
   }
 }

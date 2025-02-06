@@ -54,7 +54,7 @@ const Pricing = ({ products, mostPopularProduct = "Pro" }: PricingProps) => {
           <Switch
             id="pricing-switch"
             checked={billingInterval === "year"}
-            onCheckedChange={(checked) =>
+            onCheckedChange={(checked: any) =>
               setBillingInterval(checked ? "year" : "month")
             }
           />

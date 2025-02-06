@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import Metadata from "next";
 import { Toaster } from "@/components/ui/sonner";
 import { Nunito } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
@@ -9,8 +9,8 @@ import "./globals.css";
 const MyAppFont = Nunito({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Image AI",
-  description: "Generation Image AI ",
+  title: "AI Logo",
+  description: "Generation AI Logo ",
 };
 
 export default async function RootLayout({
