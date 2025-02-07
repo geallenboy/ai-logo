@@ -8,6 +8,7 @@ import LogoPalette from "@/components/create/logo-palette";
 import LogoDesigns from "@/components/create/logo-designs";
 import LogoIdea from "@/components/create/logo-idea";
 import { useSearchParams } from "next/navigation";
+import PricingModel from "@/components/create/pricing-model";
 
 export const CreatePage = () => {
   const [step, setStep] = useState(1);
@@ -53,6 +54,8 @@ export const CreatePage = () => {
           formData={formData}
           onHandleInputChange={(v) => onHandleInputChange("idea", v)}
         />
+      ) : step === 6 ? (
+        <PricingModel formData={formData} />
       ) : null}
       <div className="flex items-center justify-between mt-6">
         {step != 1 && (

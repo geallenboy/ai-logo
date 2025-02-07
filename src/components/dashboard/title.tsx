@@ -4,10 +4,13 @@ import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import userStore from "@/store/userStore.ts";
 
 const Title = () => {
   const dashboardT = useTranslations("dashboard");
   const [logoTitle, setLogoTitle] = useState("");
+  const userData = userStore((state) => state.data);
+  console.log(userData);
   return (
     <div className="flex items-center mt-28 flex-col gap-4">
       <h2 className="text-primary text-5xl text-center font-bold">

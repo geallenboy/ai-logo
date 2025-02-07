@@ -9,6 +9,7 @@ const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-
 export async function POST(req: Request) {
   try {
     const { prompt } = await req.json();
+    console.log(API_URL)
     const response = await axios.post(API_URL, {
       contents: [
         {

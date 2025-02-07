@@ -1,6 +1,6 @@
 "use server"
 
-import { createClient } from "@/lib/supabase/server";
+import { createServer } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 
 interface AuthResponse {
@@ -9,8 +9,8 @@ interface AuthResponse {
     data: unknown | null;
 }
 
-export const signupAction = async (formData: FormData): Promise<AuthResponse> => {
-    const supbase = await createClient();
+export const signUpAction = async (formData: FormData): Promise<AuthResponse> => {
+    const supbase = await createServer();
     const data = {
         email: formData.get("email") as string,
         password: formData.get("password") as string,
@@ -31,15 +31,13 @@ export const signupAction = async (formData: FormData): Promise<AuthResponse> =>
 
 }
 
-export const loginAction = async (formData: FormData): Promise<AuthResponse> => {
-    const supbase = await createClient();
+export const signInAction = async (formData: FormData): Promise<AuthResponse> => {
+    const supbase = await createServer();
     const data = {
         email: formData.get("email") as string,
         password: formData.get("password") as string,
     }
-    console.log("data:", data)
     const { data: signinData, error } = await supbase.auth.signInWithPassword(data)
-    console.log("data:", signinData)
     return {
         error: error?.message || "There was an error login in!",
         success: !error,
@@ -49,14 +47,14 @@ export const loginAction = async (formData: FormData): Promise<AuthResponse> => 
 }
 
 export const logoutAction = async (): Promise<void> => {
-    const supbase = await createClient();
+    const supbase = await createServer();
     await supbase.auth.signOut()
     redirect("/login")
 
 }
 
 export const updateProfileAction = async ({ fullName }: { fullName: string }): Promise<AuthResponse> => {
-    const supbase = await createClient();
+    const supbase = await createServer();
 
     const { data: profleData, error } = await supbase.auth.updateUser({
         data: { fullName }
@@ -71,7 +69,7 @@ export const updateProfileAction = async ({ fullName }: { fullName: string }): P
 }
 
 export const resetPasswordAction = async ({ email }: { email: string }): Promise<AuthResponse> => {
-    const supbase = await createClient();
+    const supbase = await createServer();
 
     const { data: profleData, error } = await supbase.auth.resetPasswordForEmail(email)
 
@@ -84,7 +82,7 @@ export const resetPasswordAction = async ({ email }: { email: string }): Promise
 }
 
 export const changePasswordAction = async (newPassword: string): Promise<AuthResponse> => {
-    const supbase = await createClient();
+    const supbase = await createServer();
     const { data, error } = await supbase.auth.updateUser({
         password: newPassword
     })

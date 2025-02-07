@@ -10,13 +10,13 @@ import {
 } from "@/components/ui/sidebar";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { getI18n } from "@/context";
+import { useI18n } from "@/context";
 import { navList } from "@/context/sidebar";
 import { useTranslations } from "next-intl";
 
 export const NavMain = () => {
   const pathname = usePathname();
-  const navData = getI18n(navList);
+  const navData = useI18n(navList);
   const sidebarT = useTranslations("sidebar");
   return (
     <SidebarGroup>

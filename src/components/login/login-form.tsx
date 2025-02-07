@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
-import { loginAction } from "@/app/actions/auth-actions";
+import { signInAction } from "@/app/actions/auth-actions";
 import { redirect } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -47,7 +47,7 @@ export const LoginForm = () => {
     formData.append("email", values.email);
     formData.append("password", values.password);
 
-    const { success, error } = await loginAction(formData);
+    const { success, error } = await signInAction(formData);
     if (!success) {
       toast.error(String(error), { id: toastId });
     } else {

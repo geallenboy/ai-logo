@@ -2,11 +2,11 @@ import React from "react";
 import Footer from "@/components/landing-page/footer";
 import Hero from "@/components/landing-page/hero";
 import Navigtion from "@/components/landing-page/navigation";
-import { createClient } from "@/lib/supabase/server";
-import { getUser } from "@/lib/supabase/queries";
+import { createServer } from "@/lib/supabase/server";
+import { getUser } from "./actions/user-actions";
 
 export default async function HomePage() {
-  const supabase = await createClient();
+  const supabase = await createServer();
   const user = await getUser(supabase);
 
   return (

@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
-import { signupAction } from "@/app/actions/auth-actions";
+import { signUpAction } from "@/app/actions/auth-actions";
 import { redirect } from "next/navigation";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -73,7 +73,7 @@ export const SignUpForm = () => {
     formData.append("email", values.email);
     formData.append("password", values.password);
 
-    const { success, error } = await signupAction(formData);
+    const { success, error } = await signUpAction(formData);
     if (!success) {
       toast.error(String(error), { id: toastId });
     } else {
