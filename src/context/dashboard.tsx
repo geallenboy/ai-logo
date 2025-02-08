@@ -26,7 +26,7 @@ export const pricingOption = {
   ],
   zh: [
     {
-      title: "免费版",
+      title: "Free",
       icon: "/free.png",
       features: [
         "✅ 免费生成无限个 logo",
@@ -38,13 +38,14 @@ export const pricingOption = {
       button: "生成免费 logo",
     },
     {
-      title: "高级版",
+      title: "Premium",
       icon: "/thunder.png",
       features: [
         "✅ 生成无限个 logo",
         "✅ 更短的等待时间",
         "✅ 等待时间：少于10秒",
         "✅ 仅限5个积分",
+        "✅ 速度快（推荐使用）",
       ],
       button: "生成免费 logo",
     },

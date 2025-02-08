@@ -8,10 +8,12 @@ import { pricingOption } from "@/context/dashboard";
 import { useTranslations } from "next-intl";
 import Description from "./description";
 import { useI18n } from "@/context";
+import userStore from "@/store/userStore.ts";
 
 function PricingModel({ formData }: { formData: any }) {
   const dashboardT = useTranslations("dashboard");
   const pricingOptionData = useI18n(pricingOption);
+
   useEffect(() => {
     if (formData?.title && typeof window !== "undefined") {
       localStorage.setItem("formData", JSON.stringify(formData));
@@ -45,18 +47,9 @@ function PricingModel({ formData }: { formData: any }) {
                 </h2>
               ))}
             </div>
-            {/* {user ? (
-              <Link href={"/generate-logo?type=" + pricing.title}>
-                <Button className="mt-5">{pricing.button}</Button>
-              </Link>
-            ) : (
-              <SignInButton
-                mode="modal"
-                forceRedirectUrl={"/generate-logo?type=" + pricing.title}
-              >
-                <Button className="mt-5">{pricing.button}</Button>
-              </SignInButton>
-            )} */}
+            <Link href={"/generate-logo?type=" + pricing.title}>
+              <Button className="mt-5">{pricing.button}</Button>
+            </Link>
           </div>
         ))}
       </div>

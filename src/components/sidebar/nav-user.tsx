@@ -99,14 +99,6 @@ export const NavUser = ({
                 </DropdownMenuItem>
               </Link>
             </DropdownMenuGroup>
-            <DropdownMenuGroup>
-              <Link href={"/billing"} className="w-full cursor-pointer">
-                <DropdownMenuItem>
-                  <CreditCard />
-                  {sidebarT("billing")}
-                </DropdownMenuItem>
-              </Link>
-            </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
               <LogOut className="size-4 text-destructive" />

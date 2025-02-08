@@ -1,4 +1,4 @@
-import { Settings2, SquareTerminal } from "lucide-react";
+import { Settings2, SquareTerminal, CreativeCommons } from "lucide-react";
 
 export const navList = {
   en: [
@@ -7,6 +7,11 @@ export const navList = {
       url: "/dashboard",
       icon: SquareTerminal,
       isActive: true,
+    },
+    {
+      title: "CreateLogo",
+      url: "/create",
+      icon: CreativeCommons,
     },
     {
       title: "Settings",
@@ -20,6 +25,11 @@ export const navList = {
       url: "/dashboard",
       icon: SquareTerminal,
       isActive: true,
+    },
+    {
+      title: "创建Logo",
+      url: "/create",
+      icon: CreativeCommons,
     },
     {
       title: "设置",

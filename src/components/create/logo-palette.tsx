@@ -15,8 +15,8 @@ const LogoPalette = ({
   return (
     <div className="my-10">
       <Description
-        title={dashboardT("LogoDescTitle")}
-        desc={dashboardT("LogoDescDesc")}
+        title={dashboardT("LogoColorPaletteTitle")}
+        desc={dashboardT("LogoColorPaletteDesc")}
       />
       <div className="grid grid-cols-2 md:grid-cols-3 gap-5 mt-5">
         {Colors.map((item, index1) => (

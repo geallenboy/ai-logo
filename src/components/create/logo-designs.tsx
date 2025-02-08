@@ -24,7 +24,8 @@ const LogoDesigns = ({
             key={index}
             onClick={() => onHandleInputChange(item)}
             className={`p-1 hover:border-2 border-primary rounded-xl cursor-pointer ${
-              design.title == item.title && "border-2 rounded-lg border-primary"
+              design?.title == item.title &&
+              "border-2 rounded-lg border-primary"
             }`}
           >
             <Image
