@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Description from "./description";
 import { useTranslations } from "next-intl";
 import Colors from "@/context/colors";

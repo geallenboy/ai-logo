@@ -1,4 +1,9 @@
-import { Settings2, SquareTerminal, CreativeCommons } from "lucide-react";
+import {
+  Settings2,
+  SquareTerminal,
+  CreativeCommons,
+  CreditCard,
+} from "lucide-react";
 
 export const navList = {
   en: [
@@ -12,6 +17,11 @@ export const navList = {
       title: "CreateLogo",
       url: "/create",
       icon: CreativeCommons,
+    },
+    {
+      title: "Credits",
+      url: "/credits",
+      icon: CreditCard,
     },
     {
       title: "Settings",
@@ -30,6 +40,11 @@ export const navList = {
       title: "创建Logo",
       url: "/create",
       icon: CreativeCommons,
+    },
+    {
+      title: "积分",
+      url: "/credits",
+      icon: CreditCard,
     },
     {
       title: "设置",

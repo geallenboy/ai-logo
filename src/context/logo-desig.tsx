@@ -1,4 +1,4 @@
-export default [
+export const LogoDesig = [
   {
     //chatGpt
     title: "Cartoon Logo",
@@ -56,3 +56,5 @@ export default [
       "Design a collection of vintage-inspired logos with a hand-drawn, artistic style. Incorporate a variety of themes, including food, animals, characters, and unique brand elements. Each logo should feature bold typography, intricate details, and a retro aesthetic that is versatile and suitable for diverse brands or businesses.",
   },
 ];
+
+export default LogoDesig;

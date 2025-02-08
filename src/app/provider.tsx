@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { usersUpdateAction } from "./actions/user-actions";
 import userStore from "@/store/userStore.ts";
@@ -11,9 +11,7 @@ export default function Provider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     init();
   }, []);
-  useEffect(() => {
-    users && CheckUserAuth();
-  }, [users]);
+
   const init = async () => {
     const {
       data: { user },
@@ -23,7 +21,8 @@ export default function Provider({ children }: { children: React.ReactNode }) {
       setUsers(user);
     }
   };
-  const CheckUserAuth = async () => {
+
+  const CheckUserAuth = useCallback(async () => {
     const { error, success, data } = await usersUpdateAction({
       email: users.email,
       name: users.user_metadata.fullName,
@@ -32,7 +31,9 @@ export default function Provider({ children }: { children: React.ReactNode }) {
       setUserData({ ...data });
     }
     console.log(error, success, data, "9999");
-  };
-
+  }, [setUserData, users]);
+  useEffect(() => {
+    users && CheckUserAuth();
+  }, [users, CheckUserAuth]);
   return <div>{children}</div>;
 }

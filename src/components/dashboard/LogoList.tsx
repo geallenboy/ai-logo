@@ -3,16 +3,13 @@
 import { getLogoAction } from "@/app/actions/logo-actions";
 import userStore from "@/store/userStore.ts";
 import Image from "next/image";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 
 function LogoList() {
   const userData = userStore((state) => state.data);
   const [logoList, setLogoList] = useState<any>([]);
-  useEffect(() => {
-    userData && GetUserLogos();
-  }, [userData]);
 
-  const GetUserLogos = async () => {
+  const GetUserLogos = useCallback(async () => {
     const result = await getLogoAction({ user: userData });
     setLogoList([]);
     result?.data.forEach((item: any) => {
@@ -20,8 +17,10 @@ function LogoList() {
 
       setLogoList((prev: any) => [...prev, item]);
     });
-  };
-
+  }, [userData]);
+  useEffect(() => {
+    userData && GetUserLogos();
+  }, [userData, GetUserLogos]);
   const ViewLogo = (image: string) => {
     const imageWindow: any = window.open();
     imageWindow.document.write(`<img src="${image}" alt="Base64 Image" />`);

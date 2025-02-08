@@ -1,7 +1,7 @@
 "use client";
 import userStore from "@/store/userStore.ts";
 import { useSearchParams } from "next/navigation";
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense, useCallback, useEffect, useState } from "react";
 import Prompt from "@/context/prompt";
 import Image from "next/image";
 import { toast } from "sonner";
@@ -19,6 +19,7 @@ const GenerateLogoPage = () => {
   const searchParams = useSearchParams();
   const modelType = searchParams.get("type");
   const dashboardT = useTranslations("dashboard");
+
   useEffect(() => {
     if (typeof window != undefined && userData?.email) {
       const storage = localStorage.getItem("formData");
@@ -28,13 +29,8 @@ const GenerateLogoPage = () => {
       }
     }
   }, [userData]);
-  useEffect(() => {
-    if (formData?.title?.length > 0) {
-      GenerateAILogo();
-    }
-  }, [formData]);
 
-  const GenerateAILogo = async () => {
+  const GenerateAILogo = useCallback(async () => {
     if (modelType != "Free" && Number(userData?.credits) <= 0) {
       toast.info("Not enought credits!!!");
       return;
@@ -65,7 +61,14 @@ const GenerateLogoPage = () => {
       setLogoImage(generateResult.data?.image);
       setLoading(false);
     }
-  };
+  }, [formData, modelType, userData]);
+
+  useEffect(() => {
+    if (formData?.title?.length > 0) {
+      GenerateAILogo();
+    }
+  }, [formData, GenerateAILogo]);
+
   const onDownload = () => {
     console.log(logoImage);
     const imageWindow: any = window.open();

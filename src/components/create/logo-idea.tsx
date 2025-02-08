@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Description from "./description";
 import axios from "axios";
 import { useTranslations } from "next-intl";
@@ -17,10 +17,7 @@ const LogoIdea = ({
   const [loading, setLoading] = useState(false);
   const [ideas, setIdeas] = useState([]);
 
-  useEffect(() => {
-    generateLogoDesignIdea();
-  }, []);
-  const generateLogoDesignIdea = async () => {
+  const generateLogoDesignIdea = useCallback(async () => {
     setLoading(true);
     const PROMPT = Prompt.DESIGN_IDEA_PROMPT.replace(
       "{logoType}",
@@ -38,7 +35,15 @@ const LogoIdea = ({
     console.log(result.data?.ideas);
     setIdeas(result.data?.ideas);
     setLoading(false);
-  };
+  }, [
+    formData.desc,
+    formData.design.prompt,
+    formData.design.title,
+    formData.title,
+  ]);
+  useEffect(() => {
+    generateLogoDesignIdea();
+  }, [generateLogoDesignIdea]);
   return (
     <div className="my-10">
       <Description

@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import React from "react";
 import Description from "./description";
-import LogoDesignsData from "@/context/logo-desig";
+import LogoDesig from "@/context/logo-desig";
 import Image from "next/image";
 
 const LogoDesigns = ({
@@ -19,7 +19,7 @@ const LogoDesigns = ({
         desc={dashboardT("LogoDesignDesc")}
       />
       <div className="grid grid-cols-2 md:grid-cols-3 gap-10 mt-10">
-        {LogoDesignsData.map((item, index) => (
+        {LogoDesig.map((item, index) => (
           <div
             key={index}
             onClick={() => onHandleInputChange(item)}

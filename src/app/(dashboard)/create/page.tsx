@@ -12,7 +12,7 @@ import PricingModel from "@/components/create/pricing-model";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 
-export const CreatePage = () => {
+const CreatePage = () => {
   const [step, setStep] = useState(1);
   const dashboardT = useTranslations("dashboard");
   const searchParam = useSearchParams();
