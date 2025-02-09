@@ -78,14 +78,15 @@ const GenerateLogoPage = () => {
     <Suspense>
       <div className="mt-16 flex flex-col items-center justify-center ">
         <h2 className="font-bold text-3xl text-primary">
-          {dashboardT("LoadingWaitTitle")}
+          {loading
+            ? dashboardT("LoadingWaitTitle")
+            : dashboardT("LoadingWaitTitleOK")}
         </h2>
         {loading && (
           <div className="flex flex-col items-center mt-2">
             <p className="text-xl text-gray-500">
               {dashboardT("LoadingWaitDesc")}
             </p>
-            <LoaderIcon className="animate-spin" />
             <Image
               src={"/loading.gif"}
               alt="loading"

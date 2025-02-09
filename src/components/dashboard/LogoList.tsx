@@ -13,8 +13,6 @@ function LogoList() {
     const result = await getLogoAction({ user: userData });
     setLogoList([]);
     result?.data.forEach((item: any) => {
-      console.log(item, "item");
-
       setLogoList((prev: any) => [...prev, item]);
     });
   }, [userData]);

@@ -1,10 +1,10 @@
 {
-  "name": "nextjs-base",
+  "name": "ai-logo",
   "version": "0.1.0",
-  "description": "Next.js Nextra docs starter",
+  "description": "ai logo",
   "author": "gegarron <gejialun88@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com",
+  "homepage": "https://github.com/geallenboy/ai-logo",
   "scripts": {
     "dev": "next dev ",
     "build": "next build",

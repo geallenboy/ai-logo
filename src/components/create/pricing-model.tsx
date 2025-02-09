@@ -8,7 +8,6 @@ import { pricingOption } from "@/context/dashboard";
 import { useTranslations } from "next-intl";
 import Description from "./description";
 import { useI18n } from "@/context";
-import userStore from "@/store/userStore.ts";
 
 function PricingModel({ formData }: { formData: any }) {
   const dashboardT = useTranslations("dashboard");

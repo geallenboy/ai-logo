@@ -25,13 +25,14 @@ export default function Provider({ children }: { children: React.ReactNode }) {
   const CheckUserAuth = useCallback(async () => {
     const { error, success, data } = await usersUpdateAction({
       email: users.email,
-      name: users.user_metadata.fullName,
+      name: users.user_metadata.full_name,
     });
     if (success) {
       setUserData({ ...data });
     }
     console.log(error, success, data, "9999");
   }, [setUserData, users]);
+
   useEffect(() => {
     users && CheckUserAuth();
   }, [users, CheckUserAuth]);

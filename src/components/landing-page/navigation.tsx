@@ -10,8 +10,10 @@ import {
 import { Menu } from "lucide-react";
 import NavItemsLeft from "./nav-items-left";
 import NavItemsRight from "./nav-items.right";
+import userStore from "@/store/userStore.ts";
 
-const Navigtion = ({ user }: { user: any }) => {
+const Navigtion = () => {
+  const userData = userStore((state) => state.data);
   return (
     <div className="w-full bg-background/60 backdrop-blur-md fixed top-0 px-8 py-4 z-50 shadow-xl overflow-hidden">
       <header className="contariner mx-auto flex items-center ">
@@ -23,7 +25,7 @@ const Navigtion = ({ user }: { user: any }) => {
             </nav>
           </div>
           <div className="hidden md:flex items-center justify-center gap-3">
-            <NavItemsRight user={user} />
+            <NavItemsRight user={userData} />
           </div>
         </div>
         <div className="ml-auto md:hidden overflow-hidden">
@@ -35,7 +37,7 @@ const Navigtion = ({ user }: { user: any }) => {
               <SheetTitle className="sr-only">导航</SheetTitle>
               <nav className="flex flex-col gap-4 mt-12">
                 <NavItemsLeft />
-                <NavItemsRight user={user} />
+                <NavItemsRight user={userData} />
               </nav>
             </SheetContent>
           </Sheet>

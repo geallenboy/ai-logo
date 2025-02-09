@@ -14,6 +14,8 @@
     "textPro": "Pro"
   },
   "login": {
+    "google": "Sign in with Google",
+    "github": "Sign in with Github",
     "loginForm": {
       "name": "Login",
       "title1": "Enter your email below to login to your account",
@@ -133,7 +135,8 @@
     "LogoPricingModelTitle": "Select your AI Model Plan",
     "LogoPricingModelDesc": "Generate Unlimited Fast Logos with your favorite model",
     "LoadingWaitDesc": "✨ Please wait a moment while we work our magic to bring your logo to life.",
-    "LoadingWaitTitle": "Your logo is being created"
+    "LoadingWaitTitle": "Your logo is being created",
+    "LoadingWaitTitleOK": "✅Logo is created OK"
   },
   "account": {
     "title": "Account settings",

@@ -12,12 +12,14 @@ export const Info = () => {
   return (
     <div>
       <div className="flex justify-between items-center">
-        <h2 className="font-bold text-3xl text-primary">
+        <h2 className="font-bold text-2xl md:text-3xl text-primary">
           您好, {userData?.name}
         </h2>
         <div className="flex items-center gap-2">
           <Image src={"/coin.png"} alt="coin" width={40} height={40} />
-          <h2 className="font-bold text-3xl">{userData?.credits} 剩余积分</h2>
+          <h2 className="font-bold text-2xl md:text-3xl">
+            {userData?.credits} 剩余积分
+          </h2>
         </div>
       </div>
 

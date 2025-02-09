@@ -13,10 +13,10 @@ const Title = () => {
   console.log(userData);
   return (
     <div className="flex items-center mt-28 flex-col gap-4">
-      <h2 className="text-primary text-5xl text-center font-bold">
+      <h2 className="text-primary text-3xl md:text-4xl lg:text-5xl text-center font-bold">
         {dashboardT("HeroHeading")}
       </h2>
-      <h2 className="text-5xl text-center font-bold">
+      <h2 className="text-2xl md:text-3xl lg:text-4xl text-center font-bold">
         {dashboardT("HeroSubheading")}
       </h2>
       <h2 className="text-lg text-gray-500 text-center">

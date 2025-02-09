@@ -15,6 +15,8 @@
     "textPro": "专业版"
   },
   "login": {
+    "google": "Google登录",
+    "github": "Github登录",
     "loginForm": {
       "name": "登录",
       "title1": "在下方输入您的邮箱以登录您的账户",
@@ -129,7 +131,8 @@
     "LogoPricingModelTitle": "选择您的 AI 模型计划",
     "LogoPricingModelDesc": "使用您喜欢的模型，快速生成无限数量的Logo",
     "LoadingWaitDesc": "✨ 请稍等片刻，我们正在施展魔法，为您打造Logo。",
-    "LoadingWaitTitle": "您的Logo正在创建中"
+    "LoadingWaitTitle": "您的Logo正在创建中",
+    "LoadingWaitTitleOK": "✅Logo创建完成"
   },
   "account": {
     "title": "账户设置",
