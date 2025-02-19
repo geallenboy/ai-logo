@@ -3,7 +3,7 @@
 import { getLogoAction } from "@/app/actions/logo-actions";
 import userStore from "@/store/userStore.ts";
 import Image from "next/image";
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 function LogoList() {
   const userData = userStore((state) => state.data);
@@ -25,7 +25,7 @@ function LogoList() {
     const imageWindow: any = window.open();
     imageWindow.document.write(`<img src="${image}" alt="Base64 Image" />`);
   };
-
+  console.log("logoList:", logoList);
   return (
     <div className="mt-10">
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">

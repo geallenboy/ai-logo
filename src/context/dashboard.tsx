@@ -21,7 +21,7 @@ export const pricingOption = {
         "⚫ Wait time: Less than 10 seconds",
         "⚫ Only 5 Credits",
       ],
-      button: "Generate Free",
+      button: "Credits Generate ",
     },
   ],
   zh: [
@@ -47,7 +47,7 @@ export const pricingOption = {
         "✅ 仅限5个积分",
         "✅ 速度快（推荐使用）",
       ],
-      button: "生成免费 logo",
+      button: "积分生成 logo",
     },
   ],
 };
