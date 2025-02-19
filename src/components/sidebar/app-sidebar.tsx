@@ -24,7 +24,7 @@ export const AppSidebar = async ({
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <Link href={"/dashboard"}>
+        <Link href={"/"}>
           <SidebarMenuButton
             size="lg"
             className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"

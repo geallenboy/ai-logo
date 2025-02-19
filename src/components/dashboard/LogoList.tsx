@@ -7,7 +7,7 @@ import React, { useCallback, useContext, useEffect, useState } from "react";
 
 function LogoList() {
   const userData = userStore((state) => state.data);
-  const [logoList, setLogoList] = useState<any>([]);
+  const [logoList, setLogoList] = useState<any>(null);
 
   const GetUserLogos = useCallback(async () => {
     const result = await getLogoAction({ user: userData });
@@ -16,9 +16,11 @@ function LogoList() {
       setLogoList((prev: any) => [...prev, item]);
     });
   }, [userData]);
+
   useEffect(() => {
     userData && GetUserLogos();
   }, [userData, GetUserLogos]);
+
   const ViewLogo = (image: string) => {
     const imageWindow: any = window.open();
     imageWindow.document.write(`<img src="${image}" alt="Base64 Image" />`);
@@ -27,7 +29,7 @@ function LogoList() {
   return (
     <div className="mt-10">
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-        {logoList?.length > 0
+        {logoList && logoList?.length > 0
           ? logoList.map((logo: any, index: number) => (
               <div
                 key={index}
