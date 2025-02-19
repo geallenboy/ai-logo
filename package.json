@@ -1,7 +1,7 @@
 {
   "name": "ai-logo",
-  "version": "0.1.0",
-  "description": "ai logo",
+  "version": "1.0.0",
+  "description": "一个开源 AI 生成 Logo 项目，结合 AI 的强大设计能力，自动生成高质量、独特且符合品牌风格的 Logo",
   "author": "gegarron <gejialun88@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/geallenboy/ai-logo",

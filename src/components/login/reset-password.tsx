@@ -70,7 +70,7 @@ export const ResetPassword = () => {
                 <FormItem>
                   <FormLabel>{resetPasswordT("email")}</FormLabel>
                   <FormControl>
-                    <Input placeholder="name@ecample.com" {...field} />
+                    <Input placeholder="name@example.com" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
