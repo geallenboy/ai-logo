@@ -4,7 +4,9 @@
 
 ✨ **为开发者、企业、自由职业者提供一键 Logo 生成的 AI 解决方案！**
 
----
+## 项目预览
+
+![login](./public/person/ai-logo.gif)
 
 ## 🚀 主要功能
 
@@ -96,7 +98,7 @@ http://localhost:3000
 
 ## 项目预览
 
-[预览地址](https://ailogo.nextjsbase.site/)
+[预览地址](https://ailogo.nextjsbase.site)
 
 ---
 
@@ -158,7 +160,3 @@ http://localhost:3000
 ✅ **开源 & 可扩展**：可自由部署 & 自定义 AI 模型。
 
 🔥 **立即 Fork & 开发，开启你的 AI 设计之旅！** 🚀
-
-## 🎨 项目预览
-
-以下是部分 UI 预览图：
