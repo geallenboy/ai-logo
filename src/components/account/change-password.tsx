@@ -20,9 +20,6 @@ import { toast } from "sonner";
 import { changePasswordAction } from "@/app/actions/auth-actions";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-const passwordValidationRegex = new RegExp(
-  "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
-);
 
 export const ChangePassword = () => {
   const [loading, setLoading] = useState(false);
@@ -31,14 +28,9 @@ export const ChangePassword = () => {
   const changePasswordT = useTranslations("account.changePassword");
   const formSchema = z
     .object({
-      password: z
-        .string()
-        .min(8, {
-          message: changePasswordT("passwordMessage"),
-        })
-        .regex(passwordValidationRegex, {
-          message: changePasswordT("passwordRegex"),
-        }),
+      password: z.string().min(8, {
+        message: changePasswordT("passwordMessage"),
+      }),
       confirmPassword: z.string({
         required_error: changePasswordT("passwordConfirmPassword"),
       }),

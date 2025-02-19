@@ -77,7 +77,7 @@ export const ResetPassword = () => {
               )}
             />
 
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full text-black dark:text-white">
               {resetPasswordT("btn1")}
             </Button>
           </form>
@@ -85,7 +85,7 @@ export const ResetPassword = () => {
       </div>
       <div className="text-center">
         <Link href={"/login"}>
-          <Button variant={"link"} className="p-0 text-black">
+          <Button variant={"link"} className="p-0 text-black dark:text-white">
             {resetPasswordT("btn2")}
           </Button>
         </Link>
