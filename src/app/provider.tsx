@@ -16,7 +16,7 @@ export default function Provider({ children }: { children: React.ReactNode }) {
     const {
       data: { user },
     } = await supabase.auth.getUser();
-    console.log(user, 7789);
+
     if (user) {
       setUsers(user);
     }
