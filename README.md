@@ -98,7 +98,7 @@ http://localhost:3000
 
 ## 项目预览
 
-[预览地址](https://ailogo.nextjsbase.site)
+[预览地址](https://ailogo.coolify.ailinksall.com/)
 
 ---
 
