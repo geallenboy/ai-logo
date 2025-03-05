@@ -95,7 +95,7 @@ const GenerateLogoPage = () => {
               className="mt-6"
             />
             <h2 className="mt-2 font-medium text-2xl text-gray-500">
-              Do Not Refresh!
+              Logo创建中，不要刷新!
             </h2>
           </div>
         )}

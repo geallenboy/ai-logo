@@ -11,7 +11,6 @@ export async function POST(req: Request) {
     try {
         const { prompt, title, desc, type, users } = await req.json();
         let base64ImageWithMime = '';
-        console.log(prompt, title, desc, type, users, 2222)
         if (type === "Free") {
             const response = await axios.post('https://api-inference.huggingface.co/models/strangerzonehf/Flux-Midjourney-Mix2-LoRA',
                 prompt,
@@ -50,13 +49,13 @@ export async function POST(req: Request) {
             console.log(output);
             base64ImageWithMime = await ConvertImageToBase64(output[0]);
             await supabase
-                .from('users')  // 选择 users 表
-                .update({ credits: Number(users.credits) - 1 })  // 更新 credits 字段
+                .from('ai_logo_users')
+                .update({ credits: Number(users.credits) - 1 })
                 .eq('id', users.id);
         }
-        // save to Databse
+
         const { data, error } = await supabase
-            .from('logos')  // 选择表
+            .from('ai_logos')
             .insert([
                 {
                     user_email: users?.email,

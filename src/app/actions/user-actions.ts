@@ -20,7 +20,7 @@ export const getUser = cache(async (supabase: SupabaseClient) => {
 
 export const getUserDetails = cache(async (supabase: SupabaseClient) => {
     const { data: userDetails } = await supabase
-        .from('users')
+        .from('ai_logo_users')
         .select('*')
         .single();
     return userDetails;
@@ -32,7 +32,7 @@ export const usersUpdateAction = async (UserData: any): Promise<AuthResponse> =>
     const { data: { user } } = await supabase.auth.getUser();
     console.log("user:", user)
     try {
-        const { data, error } = await supabase.from("users").select("*").eq("email", email).single();
+        const { data, error } = await supabase.from("ai_logo_users").select("*").eq("email", email).single();
         console.log(error, 66, data)
         if (error && error.code !== 'PGRST116') {
             console.log(1)
@@ -51,7 +51,7 @@ export const usersUpdateAction = async (UserData: any): Promise<AuthResponse> =>
             }
         } else {
             console.log(3, name, email, user?.id)
-            const { data: newUser, error: insertError } = await supabase.from("users").insert([
+            const { data: newUser, error: insertError } = await supabase.from("ai_logo_users").insert([
                 {
                     id: user?.id,
                     name,
@@ -69,7 +69,7 @@ export const usersUpdateAction = async (UserData: any): Promise<AuthResponse> =>
                     data: null
                 }
             }
-            const { data: insertData } = await supabase.from("users").select("*").eq("email", email).single();
+            const { data: insertData } = await supabase.from("ai_logo_users").select("*").eq("email", email).single();
             return {
                 error: null,
                 success: true,

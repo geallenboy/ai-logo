@@ -7,7 +7,7 @@ export const getLogoAction = async ({ user }: { user: any }) => {
     const supabase = await createServer()
 
     const { data, error } = await supabase
-        .from("logos")
+        .from("ai_logos")
         .select("*")
         .eq("user_email", user.email)
 

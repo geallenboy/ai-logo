@@ -3,9 +3,9 @@ import { Database } from "@datatypes.types";
 
 interface UserState {
   loading: boolean;
-  data: Database["public"]["Tables"]["users"]["Row"] | null;
+  data: Database["public"]["Tables"]["ai_logo_users"]["Row"] | null;
   error: string | null;
-  setData: (data: Database["public"]["Tables"]["users"]["Row"]) => void;
+  setData: (data: Database["public"]["Tables"]["ai_logo_users"]["Row"]) => void;
 }
 
 const userStore = create<UserState>((set) => ({

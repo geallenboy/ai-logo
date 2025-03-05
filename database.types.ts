@@ -9,7 +9,309 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      users: {
+      ai_image_credits: {
+        Row: {
+          created_at: string
+          id: number
+          image_generation_count: number | null
+          max_image_generation_count: number | null
+          max_model_training_count: number | null
+          model_training_count: number | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: never
+          image_generation_count?: number | null
+          max_image_generation_count?: number | null
+          max_model_training_count?: number | null
+          model_training_count?: number | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: never
+          image_generation_count?: number | null
+          max_image_generation_count?: number | null
+          max_model_training_count?: number | null
+          model_training_count?: number | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      ai_image_customers: {
+        Row: {
+          id: string
+          stripe_customer_id: string | null
+        }
+        Insert: {
+          id: string
+          stripe_customer_id?: string | null
+        }
+        Update: {
+          id?: string
+          stripe_customer_id?: string | null
+        }
+        Relationships: []
+      }
+      ai_image_generated_images: {
+        Row: {
+          aspect_ratio: string | null
+          created_at: string
+          guidance: number | null
+          height: number | null
+          id: number
+          image_name: string | null
+          model: string | null
+          num_inference_steps: number | null
+          output_format: string | null
+          prompt: string | null
+          user_id: string | null
+          width: number | null
+        }
+        Insert: {
+          aspect_ratio?: string | null
+          created_at?: string
+          guidance?: number | null
+          height?: number | null
+          id?: never
+          image_name?: string | null
+          model?: string | null
+          num_inference_steps?: number | null
+          output_format?: string | null
+          prompt?: string | null
+          user_id?: string | null
+          width?: number | null
+        }
+        Update: {
+          aspect_ratio?: string | null
+          created_at?: string
+          guidance?: number | null
+          height?: number | null
+          id?: never
+          image_name?: string | null
+          model?: string | null
+          num_inference_steps?: number | null
+          output_format?: string | null
+          prompt?: string | null
+          user_id?: string | null
+          width?: number | null
+        }
+        Relationships: []
+      }
+      ai_image_models: {
+        Row: {
+          created_at: string
+          gender: Database["public"]["Enums"]["gender"] | null
+          id: number
+          model_id: string | null
+          model_name: string | null
+          training_id: string | null
+          training_status: Database["public"]["Enums"]["training_status"] | null
+          training_steps: number | null
+          training_time: string | null
+          trigger_word: string | null
+          user_id: string | null
+          version: string | null
+        }
+        Insert: {
+          created_at?: string
+          gender?: Database["public"]["Enums"]["gender"] | null
+          id?: never
+          model_id?: string | null
+          model_name?: string | null
+          training_id?: string | null
+          training_status?:
+            | Database["public"]["Enums"]["training_status"]
+            | null
+          training_steps?: number | null
+          training_time?: string | null
+          trigger_word?: string | null
+          user_id?: string | null
+          version?: string | null
+        }
+        Update: {
+          created_at?: string
+          gender?: Database["public"]["Enums"]["gender"] | null
+          id?: never
+          model_id?: string | null
+          model_name?: string | null
+          training_id?: string | null
+          training_status?:
+            | Database["public"]["Enums"]["training_status"]
+            | null
+          training_steps?: number | null
+          training_time?: string | null
+          trigger_word?: string | null
+          user_id?: string | null
+          version?: string | null
+        }
+        Relationships: []
+      }
+      ai_image_prices: {
+        Row: {
+          active: boolean | null
+          currency: string | null
+          description: string | null
+          id: string
+          interval: Database["public"]["Enums"]["pricing_plan_interval"] | null
+          interval_count: number | null
+          metadata: Json | null
+          product_id: string | null
+          trial_period_days: number | null
+          type: Database["public"]["Enums"]["pricing_type"] | null
+          unit_amount: number | null
+        }
+        Insert: {
+          active?: boolean | null
+          currency?: string | null
+          description?: string | null
+          id: string
+          interval?: Database["public"]["Enums"]["pricing_plan_interval"] | null
+          interval_count?: number | null
+          metadata?: Json | null
+          product_id?: string | null
+          trial_period_days?: number | null
+          type?: Database["public"]["Enums"]["pricing_type"] | null
+          unit_amount?: number | null
+        }
+        Update: {
+          active?: boolean | null
+          currency?: string | null
+          description?: string | null
+          id?: string
+          interval?: Database["public"]["Enums"]["pricing_plan_interval"] | null
+          interval_count?: number | null
+          metadata?: Json | null
+          product_id?: string | null
+          trial_period_days?: number | null
+          type?: Database["public"]["Enums"]["pricing_type"] | null
+          unit_amount?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "prices_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "ai_image_products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      ai_image_products: {
+        Row: {
+          active: boolean | null
+          description: string | null
+          id: string
+          image: string | null
+          metadata: Json | null
+          name: string | null
+        }
+        Insert: {
+          active?: boolean | null
+          description?: string | null
+          id: string
+          image?: string | null
+          metadata?: Json | null
+          name?: string | null
+        }
+        Update: {
+          active?: boolean | null
+          description?: string | null
+          id?: string
+          image?: string | null
+          metadata?: Json | null
+          name?: string | null
+        }
+        Relationships: []
+      }
+      ai_image_subscriptions: {
+        Row: {
+          cancel_at: string | null
+          cancel_at_period_end: boolean | null
+          canceled_at: string | null
+          created: string
+          current_period_end: string
+          current_period_start: string
+          ended_at: string | null
+          id: string
+          metadata: Json | null
+          price_id: string | null
+          quantity: number | null
+          status: Database["public"]["Enums"]["subscription_status"] | null
+          trial_end: string | null
+          trial_start: string | null
+          user_id: string
+        }
+        Insert: {
+          cancel_at?: string | null
+          cancel_at_period_end?: boolean | null
+          canceled_at?: string | null
+          created?: string
+          current_period_end?: string
+          current_period_start?: string
+          ended_at?: string | null
+          id: string
+          metadata?: Json | null
+          price_id?: string | null
+          quantity?: number | null
+          status?: Database["public"]["Enums"]["subscription_status"] | null
+          trial_end?: string | null
+          trial_start?: string | null
+          user_id: string
+        }
+        Update: {
+          cancel_at?: string | null
+          cancel_at_period_end?: boolean | null
+          canceled_at?: string | null
+          created?: string
+          current_period_end?: string
+          current_period_start?: string
+          ended_at?: string | null
+          id?: string
+          metadata?: Json | null
+          price_id?: string | null
+          quantity?: number | null
+          status?: Database["public"]["Enums"]["subscription_status"] | null
+          trial_end?: string | null
+          trial_start?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "subscriptions_price_id_fkey"
+            columns: ["price_id"]
+            isOneToOne: false
+            referencedRelation: "ai_image_prices"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      ai_image_users: {
+        Row: {
+          avatar_url: string | null
+          billing_address: Json | null
+          full_name: string | null
+          id: string
+          payment_method: Json | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          billing_address?: Json | null
+          full_name?: string | null
+          id: string
+          payment_method?: Json | null
+        }
+        Update: {
+          avatar_url?: string | null
+          billing_address?: Json | null
+          full_name?: string | null
+          id?: string
+          payment_method?: Json | null
+        }
+        Relationships: []
+      }
+      ai_logo_users: {
         Row: {
           created_at: string | null
           credits: number | null
@@ -22,7 +324,7 @@ export type Database = {
           created_at?: string | null
           credits?: number | null
           email: string
-          id: string
+          id?: string
           name: string
           updated_at?: string | null
         }
@@ -36,6 +338,36 @@ export type Database = {
         }
         Relationships: []
       }
+      ai_logos: {
+        Row: {
+          created_at: string
+          desc: string | null
+          id: number
+          image: string | null
+          title: string | null
+          user_email: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          desc?: string | null
+          id?: number
+          image?: string | null
+          title?: string | null
+          user_email?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          desc?: string | null
+          id?: number
+          image?: string | null
+          title?: string | null
+          user_email?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -44,7 +376,23 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      gender: "man" | "women"
+      pricing_plan_interval: "day" | "week" | "month" | "year"
+      pricing_type: "one_time" | "recurring"
+      subscription_status:
+        | "trialing"
+        | "active"
+        | "canceled"
+        | "incomplete"
+        | "incomplete_expired"
+        | "past_due"
+        | "unpaid"
+      training_status:
+        | "starting"
+        | "processing"
+        | "succeeded"
+        | "failed"
+        | "canceled"
     }
     CompositeTypes: {
       [_ in never]: never
