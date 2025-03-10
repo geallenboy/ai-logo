@@ -96,12 +96,6 @@ http://localhost:3000
 
 ---
 
-## 项目预览
-
-[预览地址](https://ailogo.coolify.ailinksall.com/)
-
----
-
 ## 🤝 贡献指南
 
 我们欢迎所有开发者、设计师的贡献！🚀
