@@ -2,10 +2,11 @@ import { Toaster } from "@/components/ui/sonner";
 import { Nunito } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
-import { ThemeProvider } from "@/components/theme-provider";
-import "./globals.css";
+import { ThemeProvider } from "@/components/custom/theme-provider";
 import { Metadata } from "next";
 import Provider from "./provider";
+import { ClerkProvider } from "@clerk/nextjs";
+import "./globals.css";
 
 const MyAppFont = Nunito({ subsets: ["latin"] });
 
@@ -27,19 +28,23 @@ export default async function RootLayout({
         <link rel="icon" href="./logo.svg" />
       </head>
       <body className={`${MyAppFont.className} font-sans`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <NextIntlClientProvider messages={messages}>
-            <Provider>
-              {children}
-              <Toaster richColors />
-            </Provider>
-          </NextIntlClientProvider>
-        </ThemeProvider>
+        <ClerkProvider>
+          <Provider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <NextIntlClientProvider messages={messages}>
+                <Provider>
+                  {children}
+                  <Toaster richColors />
+                </Provider>
+              </NextIntlClientProvider>
+            </ThemeProvider>
+          </Provider>
+        </ClerkProvider>
       </body>
     </html>
   );

@@ -1,7 +1,7 @@
 import React from "react";
-import Footer from "@/components/landing-page/footer";
-import Hero from "@/components/landing-page/hero";
-import Navigtion from "@/components/landing-page/navigation";
+import Footer from "@/components/feature/landing-page/footer";
+import Hero from "@/components/feature/landing-page/hero";
+import Navigtion from "@/components/feature/landing-page/navigation";
 
 export default async function HomePage() {
   return (

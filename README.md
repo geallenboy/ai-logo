@@ -145,12 +145,41 @@ http://localhost:3000
 
 ---
 
-### **🔥 为什么选择 AI Logo？**
+### 目录结构
 
-✅ **AI 生成独特 Logo**：快速、一键生成，满足品牌个性化需求。  
-✅ **自定义风格 & 颜色**：Logo 设计可随意调整，匹配品牌形象。  
-✅ **AI 训练个性化 Logo**：根据你的品牌特点优化生成方案。  
-✅ **支持商业变现**：集成 Stripe，助力 SaaS 业务模式。  
-✅ **开源 & 可扩展**：可自由部署 & 自定义 AI 模型。
-
-🔥 **立即 Fork & 开发，开启你的 AI 设计之旅！** 🚀
+src/
+├── app/ # Next.js App Router 目录
+│ ├── api/ # API 路由
+│ ├── (auth)/ # 认证相关路由/页面
+│ ├── (dashboard)/ # 仪表盘相关路由/页面
+│ └── ...
+├── actions/ # 前端与服务端交互的 Actions
+│ ├── types.ts # 共享的类型定义
+│ ├── responses.ts # 标准化响应工具
+│ ├── auth/ # 认证相关 actions
+│ ├── users/ # 用户相关 actions
+│ │ ├── index.ts # 导出所有用户 actions
+│ │ └── user-actions.ts # 用户具体 actions
+│ └── logos/ # Logo 相关 actions
+│ ├── index.ts # 导出所有 logo actions
+│ └── logo-actions.ts # Logo 具体 actions
+├── services/ # 业务逻辑服务层
+│ ├── users/ # 用户服务
+│ │ └── user-service.ts
+│ └── logos/ # Logo 服务
+│ └── logo-service.ts
+├── db/ # 数据库相关
+│ ├── schema/ # 数据库模式定义
+│ │ ├── index.ts # 导出所有模式
+│ │ ├── users.ts # 用户表定义
+│ │ └── logos.ts # Logo 表定义
+│ └── drizzle-client.ts # 数据库客户端配置
+├── lib/ # 工具函数和共享库
+│ ├── utils/ # 工具函数
+│ ├── validators/ # 输入验证逻辑
+│ └── constants.ts # 常量定义
+├── components/ # UI 组件
+│ ├── ui/ # 基础 UI 组件
+│ ├── forms/ # 表单相关组件
+│ └── features/ # 功能组件
+└── middleware.ts # Next.js 中间件

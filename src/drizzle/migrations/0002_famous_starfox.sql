@@ -1,0 +1,1 @@
+ALTER TABLE "ai_logo" ADD COLUMN "isPremium" boolean DEFAULT false NOT NULL;

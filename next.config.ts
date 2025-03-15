@@ -8,12 +8,9 @@ const nextConfig: NextConfig = {
         remotePatterns: [
             {
                 protocol: "https",
-                hostname: "replicate.delivery"
+                hostname: "storage.ailinksall.com"
             },
-            {
-                protocol: "https",
-                hostname: "vfimxswlhpkcctniayvk.supabase.co"
-            }
+
         ]
     }
 };

@@ -75,7 +75,8 @@
     "name": "平台",
     "upgrade": "升级",
     "settings": "设置",
-    "billing": "账单"
+    "billing": "账单",
+    "logout": "退出"
   },
   "home": {
     "navigtion": {

@@ -1,8 +1,8 @@
 "use client";
-import userStore from "@/store/userStore.ts";
+
 import { useSearchParams } from "next/navigation";
 import React, { Suspense, useCallback, useEffect, useState } from "react";
-import Prompt from "@/context/prompt";
+import Prompt from "@/data/prompt";
 import Image from "next/image";
 import { toast } from "sonner";
 import axios from "axios";
@@ -10,9 +10,10 @@ import { useTranslations } from "next-intl";
 import { DownloadIcon, LayoutDashboard, LoaderIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useUserStore } from "@/store/userStore";
 
 const GenerateLogoPage = () => {
-  const userData = userStore((state) => state.data);
+  const { user } = useUserStore();
   const [formData, setFormData] = useState<any>();
   const [loading, setLoading] = useState(false);
   const [logoImage, setLogoImage] = useState();
@@ -21,17 +22,17 @@ const GenerateLogoPage = () => {
   const dashboardT = useTranslations("dashboard");
 
   useEffect(() => {
-    if (typeof window != undefined && userData?.email) {
+    if (typeof window != undefined && user?.email) {
       const storage = localStorage.getItem("formData");
       if (storage) {
         setFormData(JSON.parse(storage));
         console.log(JSON.parse(storage));
       }
     }
-  }, [userData]);
+  }, [user]);
 
   const GenerateAILogo = useCallback(async () => {
-    if (modelType != "Free" && Number(userData?.credits) <= 0) {
+    if (modelType != "Free" && Number(user?.credits) <= 0) {
       toast.info("Not enought credits!!!");
       return;
     }
@@ -48,20 +49,20 @@ const GenerateLogoPage = () => {
       prompt: PROMPT,
     });
     console.log(result);
-    console.log(userData, "userData");
+    console.log(user, "userData");
     if (result?.data?.prompt) {
       const generateResult = await axios.post("/api/ai-generate-logo", {
         prompt: result?.data?.prompt,
         title: formData.title,
         desc: formData.desc,
         type: modelType,
-        users: userData,
+        user: user,
       });
       console.log("generateResult:", generateResult);
       setLogoImage(generateResult.data?.image);
       setLoading(false);
     }
-  }, [formData, modelType, userData]);
+  }, [formData, modelType, user]);
 
   useEffect(() => {
     if (formData?.title?.length > 0) {

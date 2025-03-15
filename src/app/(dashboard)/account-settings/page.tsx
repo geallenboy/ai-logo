@@ -1,23 +1,18 @@
+"use client";
+import AccountForm from "@/components/feature/users/account-form";
+import SecuritySetting from "@/components/feature/users/security-setting";
+import Title from "@/components/feature/users/title";
+import { useUserStore } from "@/store/userStore";
 import React from "react";
-import Title from "@/components/account/title";
-import { getUser } from "@/app/actions/user-actions";
-import { redirect } from "next/navigation";
-import AccountForm from "@/components/account/account-form";
-import SecuritySetting from "@/components/account/security-setting";
-import { createServer } from "@/lib/supabase/server";
 
-const AccountSettingsPage = async () => {
-  const supabase = await createServer();
-  const user = await getUser(supabase);
-  if (!user) {
-    return redirect("/login");
-  }
+const AccountSettingsPage = () => {
+  const { user } = useUserStore();
   return (
     <div className="container mx-auto space-y-4">
       <Title />
       <div className="gird space-y-4">
-        <AccountForm user={user} />
-        <SecuritySetting user={user} />
+        {user && <AccountForm user={user} />}
+        {user && <SecuritySetting user={user} />}
       </div>
     </div>
   );

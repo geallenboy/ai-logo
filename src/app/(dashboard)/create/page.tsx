@@ -2,15 +2,15 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import LogoTitle from "@/components/create/logo-title";
-import LogoDesc from "@/components/create/logo-desc";
-import LogoPalette from "@/components/create/logo-palette";
-import LogoDesigns from "@/components/create/logo-designs";
-import LogoIdea from "@/components/create/logo-idea";
 import { useSearchParams } from "next/navigation";
-import PricingModel from "@/components/create/pricing-model";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
+import LogoTitle from "@/components/feature/create/logo-title";
+import LogoDesc from "@/components/feature/create/logo-desc";
+import LogoPalette from "@/components/feature/create/logo-palette";
+import LogoDesigns from "@/components/feature/create/logo-designs";
+import LogoIdea from "@/components/feature/create/logo-idea";
+import PricingModel from "@/components/feature/create/pricing-model";
 
 const CreatePage = () => {
   const [step, setStep] = useState(1);

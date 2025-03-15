@@ -74,7 +74,8 @@
     "name": "Platform",
     "upgrade": "Upgrade",
     "settings": "Settings",
-    "billing": "Billing"
+    "billing": "Billing",
+    "logout": "logout"
   },
   "home": {
     "navigtion": {

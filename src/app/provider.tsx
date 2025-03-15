@@ -1,40 +1,38 @@
 "use client";
 
 import React, { useCallback, useEffect, useState } from "react";
-import { createClient } from "@/lib/supabase/client";
-import { usersUpdateAction } from "./actions/user-actions";
-import userStore from "@/store/userStore.ts";
-const supabase = createClient();
+
+import { useUserStore } from "@/store/userStore";
+import { getCurrentUser } from "@/lib/clerk";
+
 export default function Provider({ children }: { children: React.ReactNode }) {
-  const [users, setUsers] = useState<any>(null);
-  const setUserData = userStore((state) => state.setData);
+  const { setUser } = useUserStore();
+
+  const init = useCallback(async () => {
+    const data = await getCurrentUser();
+    console.log(
+      "data:",
+      data,
+      data?.name && data.id && data.clerkUserId && data.email
+    );
+    if (data) {
+      setUser({
+        name: data.name,
+        id: data.id,
+        clerkUserId: data.clerkUserId,
+        email: data.email,
+        credits: data?.credits || 0,
+        imageUrl: data.imageUrl || null,
+        deletedAt: data.deletedAt || null,
+        createdAt: data.createdAt || new Date(),
+        updatedAt: data.updatedAt || new Date(),
+      });
+    }
+  }, [setUser]);
+
   useEffect(() => {
     init();
-  }, []);
+  }, [init]);
 
-  const init = async () => {
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-
-    if (user) {
-      setUsers(user);
-    }
-  };
-
-  const CheckUserAuth = useCallback(async () => {
-    const { error, success, data } = await usersUpdateAction({
-      email: users.email,
-      name: users.user_metadata.full_name,
-    });
-    if (success) {
-      setUserData({ ...data });
-    }
-    console.log(error, success, data, "9999");
-  }, [setUserData, users]);
-
-  useEffect(() => {
-    users && CheckUserAuth();
-  }, [users, CheckUserAuth]);
   return <div>{children}</div>;
 }
