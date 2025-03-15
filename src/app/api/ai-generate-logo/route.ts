@@ -67,10 +67,12 @@ export async function POST(req: Request) {
             // Save the remote image URL to MinIO
             const imageResult = await processImageUrl(output[0]);
 
-            if (imageResult.status >= 400) {
+            // Fix: Check if imageResult is a NextResponse (error case) and return it directly
+            if (imageResult instanceof NextResponse) {
                 return imageResult;
             }
 
+            // Otherwise use the URL from the successful result
             imageUrl = imageResult.url;
             consumeCredits(user.id);
             isPremium = true;
@@ -145,7 +147,15 @@ async function uploadImageToStorage(imageBuffer: Buffer, contentType: string) {
 }
 
 // Function to process and store an image from a URL
-async function processImageUrl(imageUrl: string) {
+// Modified to always return either a NextResponse or a result object with consistent typing
+async function processImageUrl(imageUrl: string): Promise<NextResponse | {
+    message: string;
+    key: string;
+    originalUrl: string;
+    newName: string;
+    url: string;
+    status: number;
+}> {
     try {
         // Fetch the image from URL
         const imageResponse = await fetch(imageUrl);
@@ -205,14 +215,7 @@ async function processImageUrl(imageUrl: string) {
         }
 
         const url = `${minioEndpoint}/${minioBucket}/${uploadParams.Key}`;
-        console.log({
-            message: '图片保存成功',
-            key: uploadParams.Key,
-            originalUrl: imageUrl,
-            newName: newFilename,
-            url: url,
-            status: 200
-        }, 8888)
+
         return {
             message: '图片保存成功',
             key: uploadParams.Key,
@@ -225,8 +228,7 @@ async function processImageUrl(imageUrl: string) {
         console.error('URL处理错误:', error);
         return NextResponse.json({
             error: '无效的图片URL',
-            details: error.message,
-            status: 400
-        });
+            details: error.message
+        }, { status: 400 });
     }
 }
