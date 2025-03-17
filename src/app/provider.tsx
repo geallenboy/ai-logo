@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useCallback, useEffect, useState } from "react";
-
+import { usePathname } from "next/navigation";
 import { useUserStore } from "@/store/userStore";
 import { getCurrentUser } from "@/lib/clerk";
 
 export default function Provider({ children }: { children: React.ReactNode }) {
   const { setUser } = useUserStore();
-
+  const pathname = usePathname();
   const init = useCallback(async () => {
     const data = await getCurrentUser();
     console.log(
@@ -31,8 +31,13 @@ export default function Provider({ children }: { children: React.ReactNode }) {
   }, [setUser]);
 
   useEffect(() => {
-    init();
-  }, [init]);
+    // 只有当路径不是首页时，才执行init方法
+    if (pathname !== "/") {
+      init();
+    } else {
+      console.log("首页不执行初始化方法");
+    }
+  }, [init, pathname]);
 
   return <div>{children}</div>;
 }
